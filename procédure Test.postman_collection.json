@@ -1,0 +1,476 @@
+{
+	"variables": [],
+	"info": {
+		"name": "procédure Test",
+		"_postman_id": "67f62f26-f6e0-62eb-c723-6a160442ff60",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/libraries",
+			"request": {
+				"url": "http://localhost:8080/api/libraries",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/books",
+			"request": {
+				"url": "http://localhost:8080/api/books",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/1",
+			"request": {
+				"url": "http://localhost:8080/api/book/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/1",
+			"request": {
+				"url": "http://localhost:8080/api/library/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/1/books",
+			"request": {
+				"url": "http://localhost:8080/api/library/1/books",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/1/book/1",
+			"request": {
+				"url": "http://localhost:8080/api/library/1/book/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer YTMwZTM3OWY4ZmYxMTc5YjkyMDI1MWQxMmFmNjM5OWJkNjc3YjVjZTFhYzQ1MDJlMjg5NDc5ZGI3ZGJmZDA1NQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"address\": \"sfax\",\n        \"name\": \"lib3\",\n        \"yearCreated\": 2015\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/books",
+			"request": {
+				"url": "http://localhost:8080/api/books",
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"library\": {\r\n            \"id\": 1\r\n        },\r\n        \"name\": \"livre1\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"ccc12\",\r\n        \"author\": \"authorName\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/1",
+			"request": {
+				"url": "http://localhost:8080/api/book/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"name\": \"livre1\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"ccc12\",\r\n        \"author\": \"authorName\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/4",
+			"request": {
+				"url": "http://localhost:8080/api/book/4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"name\": \"livre1\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"ccc12\",\r\n        \"author\": \"authorName\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/libraries",
+			"request": {
+				"url": "http://localhost:8080/api/libraries",
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"libParis\",\r\n        \"address\": \"Paris\",\r\n        \"yearCreated\": 2015\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/3",
+			"request": {
+				"url": "http://localhost:8080/api/library/3",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"libraryParis\",\r\n        \"address\": \"Paris\",\r\n        \"yearCreated\": 2015\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/3",
+			"request": {
+				"url": "http://localhost:8080/api/library/3",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"libraryParis\",\r\n        \"address\": \"Paris\",\r\n        \"yearCreated\": 2015\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/2/books",
+			"request": {
+				"url": "http://localhost:8080/api/library/2/books",
+				"method": "POST",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"livreName\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"aaa12\",\r\n        \"author\": \"author\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/2/book/5",
+			"request": {
+				"url": "http://localhost:8080/api/library/2/book/5",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"livre5\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"aaa15\",\r\n        \"author\": \"author\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/library/2/book/5",
+			"request": {
+				"url": "http://localhost:8080/api/library/2/book/5",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "name",
+						"value": "\"bib\"",
+						"description": ""
+					},
+					{
+						"key": "address",
+						"value": "\"lklkl\"",
+						"description": ""
+					},
+					{
+						"key": "yearCreated",
+						"value": "2016",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"livre5\",\r\n        \"releaseDate\": \"02/01/1999\",\r\n        \"ISBN\": \"aaa15\",\r\n        \"author\": \"author\"\r\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
