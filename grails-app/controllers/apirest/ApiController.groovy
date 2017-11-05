@@ -80,7 +80,8 @@ class ApiController {
                                         book.save(flush: true)
                                         lib2.save(flash: true)
                                     } else {
-                                        render "Library not exist."
+                                        render (status: 404, text: "Library not exist.")
+                                        return
                                     }
                                 }
                             }
@@ -95,12 +96,14 @@ class ApiController {
                                 render "Could not update due to errors"
                             }
                         }else{
-                            response.status = 404 //Internal Server Error
+                            response.status = 404 //not found
                             render "Book not found"
                         }
                     }
                     else{
-                        render """You must include the ID of the book!!"""
+                        //render """You must include the ID of the book!"""
+                        render (status: 400, text: """You must include the ID of the book!""")
+                        return
                     }
 
                     break
@@ -135,36 +138,36 @@ class ApiController {
             switch (request.getMethod()) {
                 case "GET":
                     def lib = Library.get(params.id)
-                    if(params.idB){
-                        def book = Book.get(params.idB)
-                        if(book)
-                        {
-                            if(lib.books.contains(book)) {
-                                withFormat {
-                                    json { render book as JSON }
-                                    xml { render book as XML }
+                    if(lib) {
+                        if (params.idB) {
+                            def book = Book.get(params.idB)
+                            if (book) {
+                                if (lib.books.contains(book)) {
+                                    withFormat {
+                                        json { render book as JSON }
+                                        xml { render book as XML }
+                                    }
+                                } else {
+                                    response.status = 404 //not found
+                                    render """This book is not existing in the library!!"""
                                 }
-                            }
-                            else{
+                            } else {
                                 response.status = 404 //not found
-                                render """This book is not existing in the library!!"""
+                                render """This book is not existing!!"""
+                            }
+                        } else {
+                            withFormat {
+                                json { render lib.books as JSON }
+                                xml { render lib.books as XML }
                             }
                         }
-                        else {
-                            response.status = 404 //not found
-                            render """This book is not existing!!"""
-                        }
-                    }else {
-                        withFormat {
-                            json { render lib.books as JSON }
-                            xml { render lib.books as XML }
-                        }
+                    }else{
+                        render (status: 404, text: "Not existing library")
                     }
-
                 break;
                 case "POST":
                     if(!Library.findById(params.id)){
-                        render (status: 400, text: "can't attach a book to a not existent library")
+                        render (status: 404, text: "can't attach a book to a not existent library")
                         return
                     }
 
@@ -184,27 +187,54 @@ class ApiController {
                     break;
                 case "PUT":
                     def jsonObj = request.JSON
-                    def lib = Library.findById(params.id)
-                    def book = Book.findById(params.idB)
+                    if(params.id){
+                        if(params.idB) {
+                            def lib = Library.findById(params.id)
+                            def book = Book.findById(params.idB)
+                            if(lib) {
+                                if(book) {
+                                    if (lib.books.contains(book)) {
+                                        if (jsonObj.name != null) {
+                                            book.name = jsonObj.name
+                                        }
+                                        if (jsonObj.ISBN != null) {
+                                            book.ISBN = jsonObj.ISBN
+                                        }
+                                        if (jsonObj.releaseDate != null) {
+                                            book.releaseDate = new Date(jsonObj.releaseDate)
+                                        }
+                                        if (jsonObj.author != null) {
+                                            book.author = jsonObj.author
+                                        }
 
-                        if( jsonObj.name != null )
-                        {book.name = jsonObj.name}
-                        if( jsonObj.ISBN != null )
-                        {book.ISBN = jsonObj.ISBN}
-                        if( jsonObj.releaseDate != null )
-                        {book.releaseDate = new Date(jsonObj.releaseDate)}
-                        if( jsonObj.author != null )
-                        {book.author = jsonObj.author}
-
-                    book.save(flush: true)
-                    lib.save(flush: true)
-                    if(lib.save()){
-                        response.status = 200 // OK
-                        render "Successfully updated."
+                                        book.save(flush: true)
+                                        lib.save(flush: true)
+                                        if (lib.save()) {
+                                            response.status = 200 // OK
+                                            render "Successfully updated."
+                                        } else {
+                                            response.status = 400 //
+                                            render "Book not updated!!"
+                                        }
+                                    }
+                                    else{
+                                        render (status: 404, text: "This book is not existing in the library!!")
+                                    }
+                                }else{
+                                    render (status: 404, text: "Not existing Book")
+                                }
+                            }else{
+                                render (status: 404, text: "Not existing library")
+                            }
+                        }
+                        else{
+                            response.status = 400 //Bad Request
+                            render """Update request must include the ID of the book"""
+                        }
                     }
                     else{
-                        response.status = 400 //Internal Server Error
-                        render "Book not updated!!"
+                        response.status = 400 //Bad Request
+                        render """Update request must include the IDof library"""
                     }
                     break
                 case "DELETE":
@@ -212,13 +242,23 @@ class ApiController {
                         if(params.idB) {
                             def lib = Library.findById(params.id)
                             def book = Book.findById(params.idB)
-                            if (book) {
-                                lib.removeFromBooks(book)
-                                book.delete(flush: true)
-                                render "Successfully Deleted."
-                            } else {
+                            if (lib) {
+                                if (book) {
+                                    if (lib.books.contains(book)) {
+                                        lib.removeFromBooks(book)
+                                        book.delete(flush: true)
+                                        render "Successfully Deleted."
+                                    } else {
+                                        response.status = 404 //not found
+                                        render """This book is not existing in the library!!"""
+                                    }
+                                } else {
+                                    response.status = 404 //Not Found
+                                    render "Book not found."
+                                }
+                            }else{
                                 response.status = 404 //Not Found
-                                render "Book not found."
+                                render "Library not found."
                             }
                         }
                         else{
@@ -256,7 +296,7 @@ class ApiController {
                             }
                         }
                         else{
-                            render "Not Existing Library"
+                            render (status: 404, text: "Library not exist.")
                         }
 
                     }
@@ -297,7 +337,7 @@ class ApiController {
                         }
                         else{
                             response.status = 500 //Internal Server Error
-                            render "Could not update  to errors:\n ${lib.errors}"
+                            render "Could not update due to errors"
                         }
                     }else{
                         response.status = 404
@@ -321,7 +361,7 @@ class ApiController {
                     }
                     else{
                         response.status = 404 //Not Found
-                        render "${params.id} not found."
+                        render "Library not found."
                     }
                 }
                 else{
